@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reuniones>
+    
+    {% for reunion in listaReuniones %}
+	    <reunion>
+	        <id_reunion>{{reunion.id_reunion}}</id_reunion>
+	        <hora>{{reunion.hora}}</hora>
+	        <duracion>{{reunion.duracion}}</duracion>
+	        <fecha>{{reunion.fecha}}</fecha>
+	        <direccion>{{reunion.direccion}}</direccion>
+	        <descripcion>{{reunion.descripcion}}</descripcion>
+	        <motivo>{{reunion.motivo}}</motivo>
+	        <estado>{{reunion.estado}}</estado>
+	        <empleado_asignado>{{reunion.empleado_idempleado.nombre}}</empleado_asignado>
+	    </reunion>
+	{% endfor %}
+</reuniones>

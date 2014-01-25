@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empleados>
+	{% for elemento in listaEmpleados %}
+		<empleado>
+			  <nombre>{{elemento.nombre}}</nombre>
+		</empleado>	
+	{% endfor %}
+</empleados>
