@@ -11,7 +11,8 @@
 	        <descripcion>{{reunion.descripcion}}</descripcion>
 	        <motivo>{{reunion.motivo}}</motivo>
 	        <estado>{{reunion.estado}}</estado>
-	        <empleado_asignado>{{reunion.empleado_idempleado.nombre}}</empleado_asignado>
+	        <empleado_asignado>{{reunion.empleado_idempleado.nombre}} {{reunion.empleado_idempleado.apellido}}</empleado_asignado>
+	        <cliente_asignado>{{reunion.cliente_id_cliente.nombre}}</cliente_asignado>
 	    </reunion>
 	{% endfor %}
 </reuniones>

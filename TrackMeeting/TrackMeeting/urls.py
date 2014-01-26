@@ -20,5 +20,5 @@ urlpatterns = patterns('',
     
     # XMLs para Android
     url(r'^empleadosXML/','TrackMeetingPrograma.views.empleados_xml'),
-    url(r'^proximasReunionesXML/','TrackMeetingPrograma.views.reunionesProximas_xml'),
+    url(r'^proximasReunionesXML/(?P<idempleado>\d+)$','TrackMeetingPrograma.views.reunionesProximas_de_un_Empleado_xml'),
 )

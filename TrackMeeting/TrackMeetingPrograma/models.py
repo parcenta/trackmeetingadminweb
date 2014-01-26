@@ -54,17 +54,10 @@ class AuthUserUserPermissions(models.Model):
 
 class Cliente(models.Model):
     id_cliente = models.IntegerField(primary_key=True)
-    nombre = models.CharField(max_length=45L, db_column='Nombre', blank=True) # Field name made lowercase.
-    empleado_idempleado = models.ForeignKey('Empleado', db_column='Empleado_idEmpleado') # Field name made lowercase.
-    apellido = models.CharField(max_length=100L)
+    nombre = models.CharField(max_length=45L, db_column='Nombre') # Field name made lowercase.
+    descripcion = models.CharField(max_length=100L, db_column='Descripcion', blank=True) # Field name made lowercase.
     class Meta:
         db_table = 'cliente'
-
-class ClienteHasReunion(models.Model):
-    cliente_id_cliente = models.ForeignKey(Cliente, db_column='Cliente_id_cliente') # Field name made lowercase.
-    reunion_id_reunion = models.ForeignKey('Reunion', db_column='Reunion_id_reunion') # Field name made lowercase.
-    class Meta:
-        db_table = 'cliente_has_reunion'
 
 class DjangoAdminLog(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -104,7 +97,7 @@ class Empleado(models.Model):
     idempleado = models.IntegerField(primary_key=True, db_column='idEmpleado') # Field name made lowercase.
     nombre = models.CharField(max_length=45L, db_column='Nombre', blank=True) # Field name made lowercase.
     empresa_idempresa = models.ForeignKey('Empresa', db_column='Empresa_idEmpresa') # Field name made lowercase.
-    apellido = models.CharField(max_length=100L)
+    apellido = models.CharField(max_length=45L, db_column='Apellido') # Field name made lowercase.
     class Meta:
         db_table = 'empleado'
 
@@ -123,7 +116,7 @@ class Reunion(models.Model):
     descripcion = models.CharField(max_length=45L, db_column='Descripcion', blank=True) # Field name made lowercase.
     motivo = models.CharField(max_length=45L, db_column='Motivo', blank=True) # Field name made lowercase.
     estado = models.CharField(max_length=45L, db_column='Estado', blank=True) # Field name made lowercase.
-    empleado_cliente_id_cliente = models.CharField(max_length=1L, db_column='Empleado_Cliente_id_cliente') # Field name made lowercase.
-    empleado_idempleado = models.ForeignKey(Empleado, db_column='Empleado_idEmpleado') # Field name made lowercase.
+    empleado_idempleado = models.ForeignKey(Empleado, null=True, db_column='Empleado_idEmpleado', blank=True) # Field name made lowercase.
+    cliente_id_cliente = models.ForeignKey(Cliente, db_column='Cliente_id_cliente') # Field name made lowercase.
     class Meta:
         db_table = 'reunion'
